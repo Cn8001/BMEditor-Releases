@@ -1,6 +1,8 @@
-# BMEditor
+<p align="center"><img src="assets/logo.png" alt="BMEditor" width="128"></p>
 
-Batteries included editor. Free to use.
+<h1 align="center">BMEditor</h1>
+
+<p align="center">Batteries included editor. Free to use.</p>
 
 BMEditor is a desktop code editor that is ready to work as soon as it opens.
 Claude Code, Docker, a debugger, a terminal and live previews for Markdown,
