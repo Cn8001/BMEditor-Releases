@@ -215,7 +215,7 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/Cn8001/BMEditor/bmext/host"
+	"github.com/Cn8001/BMEditorExtensions/bmext/host"
 )
 
 func main() {
