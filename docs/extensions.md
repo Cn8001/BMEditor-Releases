@@ -206,7 +206,8 @@ Requests can arrive while others run, so answer them in any order.
 
 ### A backend in Go
 
-With the `bmext/host` package, the protocol is handled for you:
+With the `bmext/host` package (`go get github.com/Cn8001/BMEditorExtensions/bmext`),
+the protocol is handled for you:
 
 ```go
 package main
