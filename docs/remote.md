@@ -8,9 +8,10 @@ to the files. You install nothing there yourself.
 
 ## Connecting
 
-1. On the start page, under **Connect to**, pick where to work. Your WSL
-   distros, the hosts in your SSH config and your running containers are
-   already listed.
+1. Choose **Connect to…** under Open Folder in the project menu, click the
+   remote button at the left of the status bar, or use **Connect to** on the
+   start page. Your WSL distros, the hosts in your SSH config and your
+   running containers are already listed.
 2. Not in the list? Choose **Add an SSH host** and type it the way you would
    for ssh, like `me@devbox` or `me@devbox:2222`. If you reach it through
    another machine, give that one as the jump host.
