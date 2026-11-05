@@ -14,13 +14,10 @@ Skim the headings and jump to what you need.
 
 Download `bmeditor-windows-amd64-installer.exe` from the
 [Releases](https://github.com/Cn8001/BMEditor-Releases/releases) page and run it.
-It asks whether BMEditor is only for you, which needs no administrator
-rights, or for everyone on the computer. It adds a Start menu entry and a
-`bmeditor` command, so `bmeditor .` in a new terminal opens that folder.
-Remove it from Settings > Apps; your settings stay.
-
-BMEditor updates itself. For an install for everyone, Windows asks for
-administrator rights first.
+It installs for you, with no administrator rights, and adds a Start menu
+entry and a `bmeditor` command, so `bmeditor .` in a new terminal opens that
+folder. BMEditor updates itself. Remove it from Settings > Apps; your
+settings stay.
 
 If you would rather not install it, `bmeditor-windows-amd64.exe` is the
 whole program on its own: keep it wherever you like.
