@@ -12,14 +12,22 @@ Skim the headings and jump to what you need.
 
 ## Getting it running
 
-Download `bmeditor-windows-amd64.exe` from the
+Download `bmeditor-windows-amd64-installer.exe` from the
 [Releases](https://github.com/Cn8001/BMEditor-Releases/releases) page and run it.
-There is no installer; the exe is the whole program, so you can rename it
-and keep it wherever you like.
+It asks whether BMEditor is only for you, which needs no administrator
+rights, or for everyone on the computer. It adds a Start menu entry and a
+`bmeditor` command, so `bmeditor .` in a new terminal opens that folder.
+Remove it from Settings > Apps; your settings stay.
 
-BMEditor needs WebView2, which Windows 11 already has. On Windows 10 it is
-usually there too; if the window stays blank, install the WebView2 Runtime
-from Microsoft.
+BMEditor updates itself. For an install for everyone, Windows asks for
+administrator rights first.
+
+If you would rather not install it, `bmeditor-windows-amd64.exe` is the
+whole program on its own: keep it wherever you like.
+
+The installer sets up WebView2 if it is missing. With the plain exe on
+Windows 10, if the window stays blank, install the WebView2 Runtime from
+Microsoft.
 
 For Go work you need Go itself on your PATH, and git if you want to see
 changes. The language server (gopls) and the debugger (dlv) are installed
