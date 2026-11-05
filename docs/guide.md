@@ -272,6 +272,9 @@ Other languages and tools come as extensions. Open **Extensions**
 Reload the window when asked, and the extension is live. **Update** fetches
 it again from the same place.
 
+First-party extensions are in
+[BMEditorExtensions](https://github.com/Cn8001/BMEditorExtensions).
+
 An extension can add a language with its highlighting and language server, a
 debugger, settings, project templates, and panels and commands of its own.
 Extensions are written by other people and run on your machine, so install
