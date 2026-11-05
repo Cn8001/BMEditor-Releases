@@ -12,8 +12,10 @@ Skim the headings and jump to what you need.
 
 ## Getting it running
 
-Download `BMEditor.exe` from the Releases page and run it. There is no
-installer; the exe is the whole program.
+Download `bmeditor-windows-amd64.exe` from the
+[Releases](https://github.com/Cn8001/BMEditor-Releases/releases) page and run it.
+There is no installer; the exe is the whole program, so you can rename it
+and keep it wherever you like.
 
 BMEditor needs WebView2, which Windows 11 already has. On Windows 10 it is
 usually there too; if the window stays blank, install the WebView2 Runtime

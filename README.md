@@ -41,7 +41,8 @@ makes it easy to feel at home.
 
 ## Five minutes to start
 
-1. Download `BMEditor.exe` from Releases and run it.
+1. Download `bmeditor-windows-amd64.exe` from
+   [Releases](https://github.com/Cn8001/BMEditor-Releases/releases) and run it.
 2. Have Go and git on your PATH.
 3. **New Project** (Ctrl+Shift+N), pick Go module, and you have a `main.go`.
 4. Press **Ctrl+F5** to run it, or click left of a line number for a
