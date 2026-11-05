@@ -32,7 +32,11 @@ makes it easy to feel at home.
   merge conflicts you resolve in the file. Committing is left to your git
   client.
 - **Extensions** for other languages and tools, from a git repository, a
-  folder or a zip.
+  folder or a zip. First-party extensions are in
+  [BMEditorExtensions](https://github.com/Cn8001/BMEditorExtensions).
+- **Other machines**: open a folder in WSL, on a server or VM over SSH, on
+  another Windows computer, or in a Docker container, from the same window.
+  There is nothing to install there.
 - A **Make** menu, if your project has a Makefile.
 
 ## Five minutes to start
@@ -50,5 +54,6 @@ makes it easy to feel at home.
 | | |
 |---|---|
 | [The guide](docs/guide.md) | everything BMEditor does, from your first project to debugging, Claude Code, Docker, settings and shortcuts |
+| [Working on another machine](docs/remote.md) | WSL, SSH hosts and containers |
 | [Writing extensions](docs/extensions.md) | add a language, a debugger, settings, project templates, panels and commands |
 | [Terms of use](docs/terms.md) | free to use, provided as is |
