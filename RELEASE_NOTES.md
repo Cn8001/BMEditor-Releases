@@ -50,3 +50,5 @@
 - Connecting to a remote host downloads the right server version.
 - Buttons in the Extension Manager wrap instead of going off the edge.
 - The selected side bar icon no longer has a line under it.
+- Tab types an indent at the cursor, as in VS Code, instead of indenting
+  the whole line; a selection over lines still indents them.
