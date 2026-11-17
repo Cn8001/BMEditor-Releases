@@ -4,6 +4,8 @@
 
 <p align="center">Batteries included editor. Free to use.</p>
 
+<p align="center"><a href="https://cn8001.github.io/BMEditor-Releases/">Website</a></p>
+
 BMEditor is a desktop code editor that is ready to work as soon as it opens.
 Claude Code, Docker, a debugger, a terminal and live previews for Markdown,
 HTML and OpenAPI are part of the editor itself, so there is nothing to find

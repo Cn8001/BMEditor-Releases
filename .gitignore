@@ -1,0 +1,3 @@
+# Added by bmeditor: folders its search skips
+node_modules/
+site/node_modules/
