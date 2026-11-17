@@ -31,7 +31,7 @@ function pick(e: Event) {
               </li>
             </ul>
           </div>
-          <a class="more" :href="href('extensions')">And seven extensions</a>
+          <a class="more" :href="href('extensions')">Extensions</a>
         </nav>
 
         <label class="picker">
@@ -59,6 +59,7 @@ function pick(e: Event) {
             <a class="shot-frame" :href="current.src" target="_blank" rel="noopener">
               <img :key="current.src" :src="current.src" :alt="current.alt" width="2560" height="1600">
             </a>
+            <p class="note">Screenshots show a made-up project.</p>
           </div>
         </article>
       </div>
@@ -89,6 +90,7 @@ function pick(e: Event) {
 .media { display: grid; gap: 12px; min-width: 0; }
 .media img { width: 100%; animation: show .25s ease; }
 @keyframes show { from { opacity: 0; } }
+.note { font-size: 13px; color: var(--muted); }
 
 @media (max-width: 1180px) { .detail { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
 @media (max-width: 760px) {

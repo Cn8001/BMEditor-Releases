@@ -7,6 +7,10 @@ declare module "*.vue" {
 }
 
 declare module "virtual:release" {
-  const release: { version: string; sections: { title: string; items: string[] }[]; images: string[] };
+  const release: {
+    version: string;
+    images: string[];
+    extensions: { name: string; displayName: string; description: string; version: string; icon: string; install: string; homepage: string }[];
+  };
   export default release;
 }

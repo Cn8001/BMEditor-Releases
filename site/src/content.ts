@@ -1,11 +1,12 @@
-// The site introduces BMEditor; the guides in docs/ explain it, and the
-// version and what is new come from RELEASE_NOTES.md at build time.
+// The site introduces BMEditor; the guides in docs/ explain it, the version
+// comes from RELEASE_NOTES.md and the extensions from their catalog, both
+// read when the site is built.
 import release from "virtual:release";
 
 export const repo = "https://github.com/Cn8001/BMEditor-Releases";
 export const extRepo = "https://github.com/Cn8001/BMEditorExtensions";
 export const version = release.version;
-export const notes = release.sections;
+export const images = release.images;
 export const guide = (anchor = "") => `${repo}/blob/master/docs/guide.md${anchor ? `#${anchor}` : ""}`;
 export const download = (file: string) => `${repo}/releases/latest/download/${file}`;
 
@@ -64,7 +65,10 @@ export const groups: Group[] = [
           "HTML runs in a sandbox that keeps its scripts away from the editor; specs are drawn by Swagger UI.",
         ],
         keys: [["Ctrl+Shift+V", "Toggle the preview"]],
-        shots: [{ src: "img/preview.png", label: "Preview", alt: "A Markdown or OpenAPI file next to its live preview" }],
+        shots: [
+          { src: "img/preview.png", label: "Markdown", alt: "README.md beside its live Markdown preview, with a rendered table" },
+          { src: "img/openapi.png", label: "OpenAPI", alt: "openapi.yaml beside its Swagger UI preview, with three routes and a schema" },
+        ],
       },
     ],
   },
@@ -146,21 +150,8 @@ for (const f of groups.flatMap((g) => g.features)) f.shots = f.shots?.filter((s)
 
 export const allFeatures = groups.flatMap((g) => g.features);
 
-export interface Extension {
-  name: string;
-  title: string;
-  text: string;
-  tags: string[];
-}
-
-export const extensions: Extension[] = [
-  { name: "web", title: "Web", tags: ["TypeScript", "Vue", "CSS"], text: "JavaScript, TypeScript, CSS, SCSS, Less, HTML, Svelte, Vue and SVG, each with its language server, and an image viewer panel." },
-  { name: "csharp", title: "C# for Unity", tags: ["C#", "Unity"], text: "A Solution Explorer, the assembly graph, an Inspector for .asmdef and package.json, Unity's compile errors in Problems, .meta and GUID tools, and Unity message completion." },
-  { name: "autocomplete", title: "Autocomplete", tags: ["Local model"], text: "Inline suggestions in every language from a small code model on your machine: llama.cpp with Qwen2.5-Coder, or Ollama. Nothing leaves the machine." },
-  { name: "powershell", title: "PowerShell", tags: ["PowerShell", "cmd"], text: "PowerShell Editor Services for completion, PSScriptAnalyzer, formatting and debugging, plus a language server for .bat and .cmd files and F5 to run them." },
-  { name: "vim", title: "Vim", tags: ["Keys"], text: "Vim key bindings in every editor tab." },
-  { name: "hex", title: "Hex Editor", tags: ["Binary"], text: "Files that are not text in hex: offsets, sixteen bytes a row, the bytes as characters, what a selection reads as, and editing in place." },
-  { name: "ascdii", title: "ASCDII Engine", tags: ["Lua", "Games"], text: "Games made with the ASCDII Engine: the project's assets, Lua with the engine's API, Project Settings, a Console, and Play in the game's window or the engine's editor." },
-];
-
-export const installUrl = (name: string) => `${extRepo}/releases/download/${name}/latest/${name}.zip`;
+// Display names in the catalog may still carry the repository prefix.
+export const extensions = release.extensions.map((x) => ({
+  ...x,
+  title: x.displayName.replace(/^bmeditor-/, "").replace(/^./, (c) => c.toUpperCase()),
+}));
