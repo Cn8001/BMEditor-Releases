@@ -1,54 +1,35 @@
-# BMEditor 0.1.5
+# BMEditor 0.1.6
 
 ## New
 
-- Extension Manager: browse BMEditor's extensions, install, update and
-  remove them, or install one from a git repository, a zip or a folder.
-- Extensions can add side bar views, Explorer views (such as the C#
-  Solution Explorer), panels, settings pages, editor features and editors
-  for files that are not text.
-- Extensions that need a newer BMEditor are listed but not loaded, and say
-  which version they need.
-- Images open in an image view, with zoom.
-- Files that are not text, such as .exe, open in the Hex Editor extension.
-  You can select bytes, read them as text and copy them.
-- SVG files open as an image that updates as you edit, with a switch to
-  the code.
-- XML and SVG syntax highlighting.
-- Search files by name in the Explorer (Ctrl+Alt+F). Files ignored by
-  .gitignore are listed last.
-- Settings has a page for the editor, Claude Code, updates and each
-  extension. Extension settings can offer a list of choices.
-- Output has a channel for each language server and extension.
-- Reload Window, from the top bar or the command palette.
-- Ctrl+Shift+H opens Replace in Files.
+- The top bar's Run, Debug, Build and Test buttons follow the open
+  project. An extension can bring its own for its kind of project, with its
+  logo; Go projects keep Go's. A project that no extension handles keeps
+  only Debug.
+- Right-click a tab for Close, Close Others, Close to the Right, Close
+  Saved and Close All, Copy Path and Copy Relative Path, Reveal in Explorer,
+  and Reveal in File Explorer.
+- Close Others, Close Saved and Close All are in the command palette too.
+- Reveal in File Explorer, in the Explorer's right-click menu and on tabs,
+  shows the file in Windows Explorer (Finder on macOS, the file manager on
+  Linux). It works for projects in WSL too.
 
 ## Improved
 
-- Search in files is much faster: on a large project it went from over a
-  second to well under 100 ms.
-- Search skips files ignored by .gitignore, so Unity's Library, Temp and
-  obj are no longer searched.
-- Search results load as you scroll, with no 2000 line limit. Replace All
-  replaces every match.
-- Opening another project reloads the window for a clean start.
-- Updating an extension that has nothing newer leaves it running.
-- Extensions can be updated or removed while they are running.
-- BMEditor keeps its data in one folder (%LOCALAPPDATA%\bmeditor on
-  Windows, ~/.local/share/bmeditor on Linux). Older folders are moved
-  there.
-- The side bar is wider by default.
-- The window title shows the project name.
+- When you connect to a remote host, the language servers, extensions,
+  terminals and Claude Code running on your computer stop, since the host
+  now runs them.
+- Claude and Docker are picked from the top bar buttons, so the right panel
+  no longer has a tab row of its own.
+- The top bar shortens its button labels first as the window narrows, so
+  the project name stays readable. Logos keep to the bar's size.
+- The start page, the empty editor and the New Project dialog fit narrow
+  windows: text wraps and icons shrink instead of running off the edge.
 
 ## Fixed
 
-- Pasting into the terminal or Claude Code no longer pastes twice.
-- Links open in your browser instead of inside the editor.
-- Files that are not text open in the right editor instead of showing an
-  error.
-- Typing quickly in Search no longer leaves old results on screen.
-- Connecting to a remote host downloads the right server version.
-- Buttons in the Extension Manager wrap instead of going off the edge.
-- The selected side bar icon no longer has a line under it.
-- Tab types an indent at the cursor, as in VS Code, instead of indenting
-  the whole line; a selection over lines still indents them.
+- Reloading the window, opening another project or connecting to a host no
+  longer leaves language servers, extensions, terminals, Claude Code or the
+  debugger running in the background.
+- Disconnecting from a host stops everything the editor started there,
+  including Docker logs.
