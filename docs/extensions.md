@@ -240,7 +240,8 @@ to stdout, and keep logs on stderr.
 ## A frontend script
 
 The script runs in the editor's window and can add panels, commands, keys
-and a toolbar group, and talk to your backend.
+and a toolbar group, take over the project's Run and Debug buttons, and talk
+to your backend.
 
 ```json
 "frontend": { "script": "frontend/index.js", "style": "frontend/style.css" }
@@ -280,7 +281,7 @@ export default function activate(api) {
 
 | | |
 |---|---|
-| `api.register({...})` | `panels`, `commands`, `toolbar`, `keydown`, `shortcuts`, `languages`, `reset` |
+| `api.register({...})` | `panels`, `commands`, `toolbar`, `project`, `keydown`, `shortcuts`, `languages`, `reset` |
 | `api.call(method, params)` | calls your backend; the promise has `cancel()` |
 | `api.on(method, fn)` | hears your backend's notifications; returns an unsubscribe |
 | `api.settings()` | your settings' values, and which secrets are set |
@@ -303,6 +304,40 @@ In `register`:
 - `setProblems(key, problems)` puts your diagnostics in Problems and the
   Explorer.
 - `reset` is called when the project closes or another one opens.
+
+### The project's buttons
+
+`project` gives the top bar's Run, Debug, Build and Test group to projects of
+your kind, in place of Go's. This needs BMEditor 0.1.6, so set
+`"engines": { "bmeditor": ">=0.1.6" }`.
+
+```ts
+api.register({
+  project: {
+    kind: 'lua',
+    label: 'Lua',
+    run: { label: 'Run', icon: 'play', title: 'Run main.lua', run: () => api.call('run', {}) },
+    build: { label: 'Build', icon: 'package', run: () => api.call('build', {}) },
+    test: { label: 'Test', icon: 'beaker', run: () => api.call('test', {}), enabled: () => !!api.ide.folder },
+    menu: [{ label: 'Run with Arguments…', icon: 'debug-alt', run: askAndRun }],
+    stop: { run: () => api.call('stop', {}), enabled: () => running },
+  },
+})
+```
+
+- `kind` is the project kind it serves; `when()` can narrow it further.
+- `label` names the group and `logo` is its image, by default your kind's
+  icon.
+- `run` is Ctrl+F5, `build` Ctrl+Shift+B and `stop` Shift+F5. `test` and
+  `more` (further buttons after Test) have no key.
+- `debug` left out is the editor's debugger, found by the file's language,
+  on F5. Give your own action instead, or `false` to hide the button.
+- `menu` fills the arrow beside Debug.
+- Each action's `label`, `icon` (a codicon name) and `title` may be functions,
+  so a button can change with your extension's state. `enabled()` greys it
+  out.
+
+A project that no extension serves and that is not Go keeps only Debug.
 
 ### Building it
 
@@ -384,6 +419,7 @@ Installed extensions live in `%AppData%\bmeditor\extensions` on Windows and
 | Field | |
 |---|---|
 | `name`, `displayName`, `version`, `description`, `icon` | who it is; `icon` is an SVG or PNG in the extension |
+| `engines.bmeditor` | the editor it needs, such as `>=0.1.6`; an older editor lists it but does not load it |
 | `languages[]` | `id`, `label`, `extensions`, `fileNames`, `icon`, `codicon`, `color`, `lineComment`, `blockComment`, `grammar`, `server` |
 | `languages[].server` | `command`, `install`, `options` |
 | `debuggers[]` | `id`, `label`, `languages`, `command`, `transport`, `install`, `prepare`, `cleanup`, `launch` |
